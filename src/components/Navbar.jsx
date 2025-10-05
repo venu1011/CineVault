@@ -53,11 +53,14 @@ const Navbar = () => {
       if (searchQuery.trim().length > 2) {
         setIsSearching(true)
         try {
-          const results = await searchMovies(searchQuery.trim())
-          setSearchResults(results.slice(0, 5))
+          const data = await searchMovies(searchQuery.trim())
+          console.log('🔍 Search autocomplete results:', data)
+          const movies = data.results || data || []
+          setSearchResults(movies.slice(0, 5))
           setShowSearchResults(true)
         } catch (error) {
-          console.error('Search error:', error)
+          console.error('❌ Search error:', error)
+          setSearchResults([])
         } finally {
           setIsSearching(false)
         }
@@ -113,7 +116,7 @@ const Navbar = () => {
         ? 'bg-white/80 backdrop-blur-lg border-b border-gray-200' 
         : 'bg-dark-900/80 backdrop-blur-lg border-b border-dark-700'
     } transition-all duration-300`}>
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
@@ -170,7 +173,7 @@ const Navbar = () => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className={`absolute top-full mt-2 w-full rounded-lg shadow-2xl overflow-hidden z-50 ${
+                  className={`absolute top-full mt-2 w-full rounded-lg shadow-2xl overflow-hidden z-[100] ${
                     theme === 'light' ? 'bg-white border border-gray-200' : 'bg-dark-800 border border-dark-600'
                   }`}
                 >
