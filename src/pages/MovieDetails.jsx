@@ -11,7 +11,7 @@ import {
   getProfileUrl,
   getPosterUrl,
   getBackdropUrl
-} from '../utils/api-tmdb-direct'
+} from '../utils/api-tmdb-proxy'
 import { useWatchlistStore } from '../store/watchlistStore'
 import { useThemeStore } from '../store/themeStore'
 import { formatRuntime, formatNumber, getRatingColor, shareContent } from '../utils/helpers'

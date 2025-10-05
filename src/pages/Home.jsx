@@ -4,7 +4,7 @@ import { FiTrendingUp, FiFilm, FiClock, FiStar, FiCalendar, FiAward, FiHeart, Fi
 import MovieCard from '../components/MovieCard'
 import LoadingSkeleton from '../components/LoadingSkeleton'
 import HeroSection from '../components/HeroSection'
-import { getTrendingMovies, getPopularMovies, getNowPlayingMovies, getUpcomingMovies, getTopRatedMovies, discoverMovies } from '../utils/api-tmdb-direct'
+import { getTrendingMovies, getPopularMovies, getNowPlayingMovies, getUpcomingMovies, getTopRatedMovies, discoverMovies } from '../utils/api-tmdb-proxy'
 import { useThemeStore } from '../store/themeStore'
 import { useWatchlistStore } from '../store/watchlistStore'
 import { getPersonalizedRecommendations, getUserTasteProfile, getRecommendationExplanation } from '../utils/recommendations'

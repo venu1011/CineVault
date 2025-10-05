@@ -5,7 +5,7 @@ import { FiSearch, FiSun, FiMoon, FiBookmark, FiMenu, FiX, FiUser, FiCheckCircle
 import { MdMovie } from 'react-icons/md'
 import { useThemeStore } from '../store/themeStore'
 import { useWatchlistStore } from '../store/watchlistStore'
-import { searchMovies, getPosterUrl } from '../utils/api-tmdb-direct'
+import { searchMovies, getPosterUrl } from '../utils/api-tmdb-proxy'
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('')

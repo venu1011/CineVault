@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiPlay, FiInfo, FiStar, FiClock, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import { useNavigate } from 'react-router-dom'
-import { getBackdropUrl, getPosterUrl } from '../utils/api-tmdb-direct'
+import { getBackdropUrl, getPosterUrl } from '../utils/api-tmdb-proxy'
 import { useThemeStore } from '../store/themeStore'
 import { formatRuntime } from '../utils/helpers'
 

@@ -1,45 +1,37 @@
 import axios from 'axios';
 
 const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-
-// Multiple CORS proxy options for better reliability
-const PROXY_OPTIONS = [
-  'https://api.allorigins.win/raw?url=',
-  'https://api.codetabs.com/v1/proxy?quest=',
-  'https://corsproxy.io/?',
-];
-
 const TMDB_BASE = 'https://api.themoviedb.org/3';
 
+// Use reliable, fast CORS proxy
+const CORS_PROXY = 'https://corsproxy.io/?';
+
 const tmdbClient = axios.create({
-  timeout: 10000 // 10 seconds
+  timeout: 10000, // 10 seconds
+  headers: {
+    'Accept': 'application/json',
+  }
 });
 
 console.log('🔑 TMDb API Key Status:', TMDB_API_KEY ? '✅ Loaded' : '❌ Missing');
 
-// Try multiple proxies with fallback
+// Single reliable proxy - fast and works on mobile
 const fetchFromTMDb = async (endpoint) => {
-  const fullUrl = `${TMDB_BASE}${endpoint}`;
-  
-  // Try each proxy in order
-  for (let i = 0; i < PROXY_OPTIONS.length; i++) {
-    const proxyUrl = `${PROXY_OPTIONS[i]}${encodeURIComponent(fullUrl)}`;
-    
-    try {
-      console.log(`🚀 Attempting proxy ${i + 1}/${PROXY_OPTIONS.length}: ${endpoint}`);
-      const response = await tmdbClient.get(proxyUrl);
-      console.log(`✅ Success with proxy ${i + 1}!`);
-      return response.data;
-    } catch (error) {
-      console.warn(`⚠️ Proxy ${i + 1} failed:`, error.message);
-      
-      // If this was the last proxy, throw error
-      if (i === PROXY_OPTIONS.length - 1) {
-        console.error('❌ All proxies failed');
-        throw new Error('Unable to load movies. Please check your internet connection and try again.');
-      }
-      // Otherwise, continue to next proxy
+  try {
+    if (!TMDB_API_KEY) {
+      throw new Error('TMDb API key is missing');
     }
+
+    const fullUrl = `${TMDB_BASE}${endpoint}`;
+    const proxyUrl = `${CORS_PROXY}${encodeURIComponent(fullUrl)}`;
+    
+    console.log(`🚀 Fetching: ${endpoint}`);
+    const response = await tmdbClient.get(proxyUrl);
+    console.log('✅ Data loaded successfully');
+    return response.data;
+  } catch (error) {
+    console.error('❌ API Error:', error.message);
+    throw new Error('Unable to load movies. Please try again.');
   }
 };
 
