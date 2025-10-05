@@ -3,11 +3,8 @@ import axios from 'axios';
 const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const TMDB_BASE = 'https://api.themoviedb.org/3';
 
-// Use reliable, fast CORS proxy
-const CORS_PROXY = 'https://corsproxy.io/?';
-
 const tmdbClient = axios.create({
-  timeout: 10000, // 10 seconds
+  timeout: 15000, // 15 seconds for better reliability
   headers: {
     'Accept': 'application/json',
   }
@@ -15,7 +12,7 @@ const tmdbClient = axios.create({
 
 console.log('🔑 TMDb API Key Status:', TMDB_API_KEY ? '✅ Loaded' : '❌ Missing');
 
-// Single reliable proxy - fast and works on mobile
+// AllOrigins proxy - more reliable and stable
 const fetchFromTMDb = async (endpoint) => {
   try {
     if (!TMDB_API_KEY) {
@@ -23,7 +20,7 @@ const fetchFromTMDb = async (endpoint) => {
     }
 
     const fullUrl = `${TMDB_BASE}${endpoint}`;
-    const proxyUrl = `${CORS_PROXY}${encodeURIComponent(fullUrl)}`;
+    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(fullUrl)}`;
     
     console.log(`🚀 Fetching: ${endpoint}`);
     const response = await tmdbClient.get(proxyUrl);
