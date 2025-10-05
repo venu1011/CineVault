@@ -2,29 +2,44 @@ import axios from 'axios';
 
 const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
-// Use FAST CORS proxy that works!
-const PROXY_URL = 'https://api.codetabs.com/v1/proxy?quest=';
+// Multiple CORS proxy options for better reliability
+const PROXY_OPTIONS = [
+  'https://api.allorigins.win/raw?url=',
+  'https://api.codetabs.com/v1/proxy?quest=',
+  'https://corsproxy.io/?',
+];
+
 const TMDB_BASE = 'https://api.themoviedb.org/3';
 
 const tmdbClient = axios.create({
-  timeout: 8000 // 8 seconds - faster!
+  timeout: 10000 // 10 seconds
 });
 
 console.log('🔑 TMDb API Key Status:', TMDB_API_KEY ? '✅ Loaded' : '❌ Missing');
 
-// Fast fetch through single reliable proxy
+// Try multiple proxies with fallback
 const fetchFromTMDb = async (endpoint) => {
-  try {
-    const fullUrl = `${TMDB_BASE}${endpoint}`;
-    const proxyUrl = `${PROXY_URL}${encodeURIComponent(fullUrl)}`;
+  const fullUrl = `${TMDB_BASE}${endpoint}`;
+  
+  // Try each proxy in order
+  for (let i = 0; i < PROXY_OPTIONS.length; i++) {
+    const proxyUrl = `${PROXY_OPTIONS[i]}${encodeURIComponent(fullUrl)}`;
     
-    console.log(`🚀 Fetching: ${endpoint}`);
-    const response = await tmdbClient.get(proxyUrl);
-    console.log('✅ Data loaded!');
-    return response.data;
-  } catch (error) {
-    console.error('❌ Error:', error.message);
-    throw new Error('Failed to fetch data. Please check your connection.');
+    try {
+      console.log(`🚀 Attempting proxy ${i + 1}/${PROXY_OPTIONS.length}: ${endpoint}`);
+      const response = await tmdbClient.get(proxyUrl);
+      console.log(`✅ Success with proxy ${i + 1}!`);
+      return response.data;
+    } catch (error) {
+      console.warn(`⚠️ Proxy ${i + 1} failed:`, error.message);
+      
+      // If this was the last proxy, throw error
+      if (i === PROXY_OPTIONS.length - 1) {
+        console.error('❌ All proxies failed');
+        throw new Error('Unable to load movies. Please check your internet connection and try again.');
+      }
+      // Otherwise, continue to next proxy
+    }
   }
 };
 
