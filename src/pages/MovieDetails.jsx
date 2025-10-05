@@ -7,15 +7,11 @@ import {
 } from 'react-icons/fi'
 import { 
   getMovieDetails, 
-  getMovieTrailer, 
-  getMovieCredits, 
-  getSimilarMovies, 
-  getRecommendations,
-  getWatchProviders,
+  getMovieVideos,
   getProfileUrl,
   getPosterUrl,
   getBackdropUrl
-} from '../utils/api-tmdb-proxy'
+} from '../utils/api-tmdb-direct'
 import { useWatchlistStore } from '../store/watchlistStore'
 import { useThemeStore } from '../store/themeStore'
 import { formatRuntime, formatNumber, getRatingColor, shareContent } from '../utils/helpers'
