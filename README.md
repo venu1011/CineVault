@@ -1,364 +1,714 @@
-# 🎬 CineVault# 🎬 Movie Explorer Pro# 🎬 Movie Explorer Pro# 🎬 Movie Explorer Pro
+# 🎬 CineVault# 🎬 CineVault
 
 
 
-A modern, feature-rich movie discovery and tracking application built with React and powered by The Movie Database (TMDb) API. Your personal vault of cinematic treasures - explore millions of movies, get AI-powered recommendations, and manage your watchlist with an elegant, responsive interface.
+> Your personal vault of cinematic treasures - explore millions of movies, get AI-powered recommendations, and manage your watchlist with an elegant, responsive interface.> Your personal vault of cinematic treasures - explore millions of movies, get AI-powered recommendations, and manage your watchlist with an elegant, responsive interface.
 
 
 
-![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)A modern, feature-rich movie discovery and tracking application built with React and powered by The Movie Database (TMDb) API. Explore millions of movies, get AI-powered recommendations, and manage your personal watchlist with an elegant, responsive interface.
+![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)
 
-![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?logo=vite)![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?logo=vite)
 
-![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?logo=vite)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-38B2AC?logo=tailwindcss)![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-38B2AC?logo=tailwindcss)
 
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)A modern, feature-rich movie discovery and tracking application built with React and powered by The Movie Database (TMDb) API. Explore millions of movies, get AI-powered recommendations, and manage your personal watchlist with an elegant, responsive interface.A modern, feature-rich movie discovery platform built with React, featuring real-time search, personalized watchlists, and an intuitive user experience.
+![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)
 
-## ✨ Features
 
-![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)
 
-### 🔍 Core Features
+A modern, feature-rich movie discovery and tracking application built with React and powered by The Movie Database (TMDb) API. Experience lightning-fast movie search, AI-powered recommendations, and seamless watchlist management with a beautiful, responsive interface.A modern, feature-rich movie discovery and tracking application built with React and powered by The Movie Database (TMDb) API. Experience lightning-fast movie search, AI-powered recommendations, and seamless watchlist management with a beautiful, responsive interface.
 
-- **Advanced Movie Search** - Search through millions of movies with real-time autocomplete![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?logo=vite)
 
-- **🎥 Movie Details** - Comprehensive information including cast, crew, ratings, runtime, and more
 
-- **🔥 Trending & Popular** - Discover what's trending today and all-time popular movies![License](https://img.shields.io/badge/license-MIT-green.svg)
+---## ✨ Features
 
-- **🎭 Genre Filtering** - Browse movies by your favorite genres
 
-- **▶️ Interactive Trailers** - Watch movie trailers in an embedded YouTube player![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)![Movie Explorer Pro](https://img.shields.io/badge/React-18.2-blue) ![Vite](https://img.shields.io/badge/Vite-5.0-646CFF) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-38B2AC) ![License](https://img.shields.io/badge/License-MIT-green)
+
+## ✨ Features![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)
+
+
+
+### 🔍 Core Features### 🔍 Core Features
+
+
+
+- **⚡ Advanced Movie Search** - Real-time search with debouncing (300ms) and autocomplete- **Advanced Movie Search** - Search through millions of movies with real-time autocomplete![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?logo=vite)
+
+- **🎥 Movie Details** - Comprehensive information including cast, crew, ratings, runtime, trailers, and more
+
+- **🔥 Trending & Popular** - Discover what's trending today and all-time popular movies- **🎥 Movie Details** - Comprehensive information including cast, crew, ratings, runtime, and more
+
+- **🎭 Genre Filtering** - Browse movies by your favorite genres with advanced filters
+
+- **▶️ Interactive Trailers** - Watch movie trailers in an embedded YouTube modal player- **🔥 Trending & Popular** - Discover what's trending today and all-time popular movies![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 - **📄 Smart Pagination** - Navigate through large movie collections efficiently
 
-## ✨ Features
+- **🔗 Copy Link** - Share movie details with one click using clipboard API- **🎭 Genre Filtering** - Browse movies by your favorite genres
 
-### 🤖 AI-Powered Features
+
+
+### 🤖 AI-Powered Recommendations- **▶️ Interactive Trailers** - Watch movie trailers in an embedded YouTube player![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)![Movie Explorer Pro](https://img.shields.io/badge/React-18.2-blue) ![Vite](https://img.shields.io/badge/Vite-5.0-646CFF) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-38B2AC) ![License](https://img.shields.io/badge/License-MIT-green)
+
+
+
+- **💡 Personalized "For You" Section** - Get AI-generated movie suggestions based on your watchlist- **📄 Smart Pagination** - Navigate through large movie collections efficiently
+
+- **🧠 Genre Affinity Analysis** - Intelligent genre preference detection and scoring
+
+- **📊 Rating Pattern Detection** - Learns your rating preferences (high-rated vs. popular)## ✨ Features
+
+- **📅 Year Preference Analysis** - Detects if you prefer recent releases or classic films
+
+- **🔄 Smart Refresh** - Randomized recommendations with different movies on each refresh### 🤖 AI-Powered Features
+
+- **📈 Adaptive Algorithm** - Improves suggestions as you add more movies to your watchlist
 
 - **💡 Personalized Recommendations** - Get AI-generated movie suggestions based on your watchlist![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)
 
+### 📚 Personal Collection Management
+
 - **🧠 Genre Affinity Analysis** - Intelligent genre preference detection
 
-- **🎯 Smart Movie Discovery** - Recommendations tailored to your viewing history### 🔍 Core Features
+- **🔖 Watchlist** - Save movies you want to watch later with visual indicators
 
+- **✅ Already Watched** - Track movies you've already seen- **🎯 Smart Movie Discovery** - Recommendations tailored to your viewing history### 🔍 Core Features
 
+- **🕐 Recently Viewed** - Quick access to your recently browsed movies (last 20)
+
+- **⭐ Movie Ratings** - Rate movies on a 1-10 scale with star ratings
+
+- **📊 Collection Statistics** - View your collection stats at a glance in the profile
 
 ### 📚 Personal Collection Management- **Advanced Movie Search** - Search through millions of movies with real-time autocomplete![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?logo=vite)## ✨ Features
 
+### 📺 Streaming Integration
+
 - **🔖 My Watchlist** - Save movies you want to watch later
 
-- **✅ Already Watched** - Track movies you've already seen- **🎥 Movie Details** - Comprehensive information including cast, crew, ratings, runtime, and more
+- **🎬 OTT Platform Links** - Direct links to 19+ streaming services:
 
-- **🕐 Recently Viewed** - Quick access to your recently browsed movies
+  - Netflix, Prime Video, Disney+, Hotstar, Hulu, HBO Max, Apple TV+- **✅ Already Watched** - Track movies you've already seen- **🎥 Movie Details** - Comprehensive information including cast, crew, ratings, runtime, and more
+
+  - Zee5, SonyLIV, Voot, Jio Cinema, MX Player, and more!
+
+- **📍 Watch Provider Information** - See where movies are available to stream or rent- **🕐 Recently Viewed** - Quick access to your recently browsed movies
+
+- **🌍 Regional Availability** - Support for multiple regions (India, US, etc.)
 
 - **⭐ Movie Ratings** - Rate movies on a 1-10 scale- **🔥 Trending & Popular** - Discover what's trending today and all-time popular movies![License](https://img.shields.io/badge/license-MIT-green.svg)
 
+### 💎 Modern UI/UX
+
 - **📊 Collection Statistics** - View your collection stats at a glance
 
-- **🎭 Genre Filtering** - Browse movies by your favorite genres
+- **🌓 Dark/Light Theme** - Toggle between beautiful dark and light modes with persistence
 
-### 🎨 User Experience
+- **✨ Glass Morphism Design** - Beautiful backdrop blur effects throughout the app- **🎭 Genre Filtering** - Browse movies by your favorite genres
 
-- **⚡ Search Autocomplete** - Live search with recent searches and popular suggestions- **▶️ Interactive Trailers** - Watch movie trailers in an embedded YouTube player### Core Functionality
+- **🎨 Gradient Accents** - Eye-catching color gradients and smooth transitions
 
-- **👤 User Profile Dashboard** - Quick stats and navigation to your collections
+- **📱 Responsive Design** - Seamless experience across desktop, tablet, and mobile (mobile-first)### 🎨 User Experience
 
-- **🌓 Dark/Light Theme** - Toggle between beautiful dark and light modes- **📄 Smart Pagination** - Navigate through large movie collections efficiently
+- **🎬 Smooth Animations** - Powered by Framer Motion for delightful interactions
 
-- **📱 Responsive Design** - Seamless experience across desktop, tablet, and mobile
+- **⏳ Loading Skeletons** - Professional skeleton screens for better perceived performance- **⚡ Search Autocomplete** - Live search with recent searches and popular suggestions- **▶️ Interactive Trailers** - Watch movie trailers in an embedded YouTube player### Core Functionality
 
-- **✨ Smooth Animations** - Powered by Framer Motion for delightful interactions## ✨ Features- 🔍 **Advanced Search** - Real-time movie search with debouncing and filters
+- **🖼️ Lazy Loading Images** - Optimized image loading for faster page loads
 
-- **⏳ Loading States** - Skeleton screens for better perceived performance
+- **🎪 Empty States** - Helpful illustrations when no content is available- **👤 User Profile Dashboard** - Quick stats and navigation to your collections
 
-### 🤖 AI-Powered Features
+- **🔔 Toast Notifications** - Non-intrusive success/error messages with React Hot Toast
 
-### 📺 Streaming Integration
-
-- **🎬 Clickable OTT Platforms** - Direct links to 19+ streaming services- **💡 Personalized Recommendations** - Get AI-generated movie suggestions based on your watchlist- 🎯 **Smart Filters** - Filter by year, type, and genre
-
-  - Netflix, Prime Video, Disney+, Hotstar, Hulu, HBO Max, Apple TV+
-
-  - Zee5, SonyLIV, Voot, Jio Cinema, MX Player, and more!- **🧠 Genre Affinity Analysis** - Intelligent genre preference detection
-
-- **📍 Watch Provider Information** - See where movies are available to stream or rent
-
-- **🌍 Regional Availability** - Support for multiple regions (India, US, etc.)- **🎯 Smart Movie Discovery** - Recommendations tailored to your viewing history### 🎯 Core Features- 📱 **Fully Responsive** - Optimized for all devices (mobile-first design)
+- **⬆️ Back to Top Button** - Smooth scroll to top with fade-in animation (appears after 300px scroll)- **🌓 Dark/Light Theme** - Toggle between beautiful dark and light modes- **📄 Smart Pagination** - Navigate through large movie collections efficiently
 
 
+
+### ⚡ Performance & Developer Experience- **📱 Responsive Design** - Seamless experience across desktop, tablet, and mobile
+
+
+
+- **💾 Smart Caching** - SessionStorage caching (5-10 min TTL) prevents unnecessary API calls- **✨ Smooth Animations** - Powered by Framer Motion for delightful interactions## ✨ Features- 🔍 **Advanced Search** - Real-time movie search with debouncing and filters
+
+- **🔄 SPA Navigation** - No page reloads when navigating back from movie details
+
+- **⏱️ Search Debouncing** - 300ms debounce for efficient API usage- **⏳ Loading States** - Skeleton screens for better perceived performance
+
+- **🛡️ Error Boundary** - Graceful error handling with beautiful error page and recovery options
+
+- **⌨️ Keyboard Shortcuts** - Power user features:### 🤖 AI-Powered Features
+
+  - `/` - Focus search bar instantly
+
+  - `ESC` - Close modals and search results### 📺 Streaming Integration
+
+- **🚀 Fast CORS Proxy** - Optimized proxy solution for 1-3 second load times
+
+- **📝 Code Quality** - Clean code with ESLint standards and proper error handling- **🎬 Clickable OTT Platforms** - Direct links to 19+ streaming services- **💡 Personalized Recommendations** - Get AI-generated movie suggestions based on your watchlist- 🎯 **Smart Filters** - Filter by year, type, and genre
+
+
+
+---  - Netflix, Prime Video, Disney+, Hotstar, Hulu, HBO Max, Apple TV+
+
+
+
+## 🛠️ Tech Stack  - Zee5, SonyLIV, Voot, Jio Cinema, MX Player, and more!- **🧠 Genre Affinity Analysis** - Intelligent genre preference detection
+
+
+
+### Frontend- **📍 Watch Provider Information** - See where movies are available to stream or rent
+
+- **⚛️ React 18.2** - Modern React with Hooks and functional components
+
+- **🛤️ React Router DOM 6** - Client-side routing with URL parameters- **🌍 Regional Availability** - Support for multiple regions (India, US, etc.)- **🎯 Smart Movie Discovery** - Recommendations tailored to your viewing history### 🎯 Core Features- 📱 **Fully Responsive** - Optimized for all devices (mobile-first design)
+
+- **⚡ Vite 5.0** - Lightning-fast build tool and dev server with HMR
+
+- **🎨 Tailwind CSS 3.3** - Utility-first CSS framework with custom configuration
+
+- **🎬 Framer Motion** - Production-ready animation library for smooth transitions
 
 ### 💎 Modern UI/UX
 
-- **✨ Glass Morphism Design** - Beautiful backdrop blur effects
+### State Management
 
-- **🎨 Gradient Accents** - Eye-catching color gradients throughout### 📚 Personal Collection Management- **Advanced Movie Search** - Search through millions of movies with real-time autocomplete- 🎨 **Dark/Light Theme** - Toggle between themes with persistent storage
+- **🐻 Zustand** - Lightweight state management with localStorage persistence- **✨ Glass Morphism Design** - Beautiful backdrop blur effects
 
-- **🖱️ Hover Interactions** - Smooth scale and glow effects
+- **💾 LocalStorage** - Persistent data for watchlist, ratings, and preferences
 
-- **🎪 Empty States** - Helpful illustrations when no content is available- **🔖 My Watchlist** - Save movies you want to watch later
+- **🗄️ SessionStorage** - Smart caching for movie data- **🎨 Gradient Accents** - Eye-catching color gradients throughout### 📚 Personal Collection Management- **Advanced Movie Search** - Search through millions of movies with real-time autocomplete- 🎨 **Dark/Light Theme** - Toggle between themes with persistent storage
+
+
+
+### API & Data- **🖱️ Hover Interactions** - Smooth scale and glow effects
+
+- **🎞️ TMDb API v3** - The Movie Database API for comprehensive movie data
+
+- **📡 Axios** - HTTP client for API requests with timeout handling- **🎪 Empty States** - Helpful illustrations when no content is available- **🔖 My Watchlist** - Save movies you want to watch later
+
+- **🔓 CORS Proxy** - cors.eu.org for bypassing CORS restrictions
 
 - **🔔 Toast Notifications** - Non-intrusive success/error messages
 
-- **✅ Already Watched** - Track movies you've already seen- **Movie Details** - Comprehensive information including cast, crew, ratings, runtime, and more- ⚡ **Infinite Scroll** - Load more results seamlessly
-
-## 🛠️ Tech Stack
-
-- **🕐 Recently Viewed** - Quick access to your recently browsed movies
-
-### Frontend
-
-- **⚛️ React 18.2** - Modern React with Hooks and functional components- **⭐ Movie Ratings** - Rate movies on a 1-10 scale- **Trending & Popular** - Discover what's trending today and all-time popular movies- 🎥 **Movie Details** - Comprehensive information including trailers, cast, ratings
-
-- **🛤️ React Router DOM 6** - Client-side routing with URL parameters
-
-- **⚡ Vite** - Lightning-fast build tool and dev server- **📊 Collection Statistics** - View your collection stats at a glance
-
-- **🎨 Tailwind CSS 3.3** - Utility-first CSS framework
-
-- **🎬 Framer Motion** - Production-ready animation library- **Genre Filtering** - Browse movies by your favorite genres- ⭐ **User Ratings** - Rate movies and track your personal ratings
-
-
-
-### State Management### 🎨 User Experience
-
-- **🐻 Zustand** - Lightweight state management with localStorage persistence
-
-- **💾 LocalStorage** - Persistent data for watchlist, ratings, and preferences- **⚡ Search Autocomplete** - Live search with recent searches and popular suggestions- **Interactive Trailers** - Watch movie trailers in an embedded YouTube player
-
-
-
-### API & Data- **👤 User Profile Dashboard** - Quick stats and navigation to your collections
-
-- **🎞️ TMDb API** - The Movie Database API for movie data
-
-- **📡 Axios** - HTTP client for API requests- **🌓 Dark/Light Theme** - Toggle between beautiful dark and light modes- **Smart Pagination** - Navigate through large movie collections efficiently### User Collection Management
-
-- **🔓 CORS Proxy** - Bypass CORS restrictions for TMDb API
-
-- **📱 Responsive Design** - Seamless experience across desktop, tablet, and mobile
-
 ### UI Components & Icons
 
-- **🎯 React Icons** - Beautiful icon library (Feather Icons)- **✨ Smooth Animations** - Powered by Framer Motion for delightful interactions- 💾 **Watchlist** - Save movies to watch later
+- **🎯 React Icons** - Beautiful icon library (Feather Icons)- **✅ Already Watched** - Track movies you've already seen- **Movie Details** - Comprehensive information including cast, crew, ratings, runtime, and more- ⚡ **Infinite Scroll** - Load more results seamlessly
 
 - **🍞 React Hot Toast** - Elegant toast notifications
 
-- **👁️ React Intersection Observer** - Lazy loading and scroll animations- **⏳ Loading States** - Skeleton screens for better perceived performance
+- **👁️ React Intersection Observer** - Lazy loading and scroll animations## 🛠️ Tech Stack
 
 
 
-## 📦 Installation### 🤖 AI-Powered Features- ❤️ **Favorites** - Mark and organize your favorite movies
+---- **🕐 Recently Viewed** - Quick access to your recently browsed movies
 
 
 
-### Prerequisites### 📺 Streaming Integration
-
-- Node.js 16+ and npm/yarn
-
-- TMDb API Key (free at https://www.themoviedb.org/settings/api)- **🎬 Clickable OTT Platforms** - Direct links to 19+ streaming services- **Personalized Recommendations** - Get AI-generated movie suggestions based on your watchlist- 🗂️ **Local Storage** - All data persists across sessions
+## 📦 Installation### Frontend
 
 
 
-### Setup Steps  - Netflix, Prime Video, Disney+, Hotstar, Hulu, HBO Max, Apple TV+
+### Prerequisites- **⚛️ React 18.2** - Modern React with Hooks and functional components- **⭐ Movie Ratings** - Rate movies on a 1-10 scale- **Trending & Popular** - Discover what's trending today and all-time popular movies- 🎥 **Movie Details** - Comprehensive information including trailers, cast, ratings
 
 
 
-1. **Clone the repository**  - Zee5, SonyLIV, Voot, Jio Cinema, MX Player, and more!- **Genre Affinity Analysis** - Intelligent genre preference detection
+- Node.js 16+ and npm/yarn- **🛤️ React Router DOM 6** - Client-side routing with URL parameters
 
-   ```bash
+- TMDb API Key (free at [https://www.themoviedb.org/settings/api](https://www.themoviedb.org/settings/api))
 
-   git clone https://github.com/yourusername/cinevault.git- **📍 Watch Provider Information** - See where movies are available to stream or rent
+- **⚡ Vite** - Lightning-fast build tool and dev server- **📊 Collection Statistics** - View your collection stats at a glance
 
-   cd cinevault
+### Setup Steps
 
-   ```- **🌍 Regional Availability** - Support for multiple regions (India, US, etc.)- **Smart Movie Discovery** - Recommendations tailored to your viewing history### UI/UX Excellence
+- **🎨 Tailwind CSS 3.3** - Utility-first CSS framework
 
+1. **Clone the repository**
 
+   ```bash- **🎬 Framer Motion** - Production-ready animation library- **Genre Filtering** - Browse movies by your favorite genres- ⭐ **User Ratings** - Rate movies and track your personal ratings
+
+   git clone https://github.com/venu1011/CineVault.git
+
+   cd CineVault
+
+   ```
+
+### State Management### 🎨 User Experience
 
 2. **Install dependencies**
 
-   ```bash
+   ```bash- **🐻 Zustand** - Lightweight state management with localStorage persistence
 
-   npm install### 💎 Modern UI/UX- 🎭 **Smooth Animations** - Framer Motion powered transitions
+   npm install
 
-   # or
+   # or- **💾 LocalStorage** - Persistent data for watchlist, ratings, and preferences- **⚡ Search Autocomplete** - Live search with recent searches and popular suggestions- **Interactive Trailers** - Watch movie trailers in an embedded YouTube player
 
-   yarn install- **✨ Glass Morphism Design** - Beautiful backdrop blur effects
-
-   ```
-
-- **🎨 Gradient Accents** - Eye-catching color gradients throughout### 📚 Personal Collection Management- 🖼️ **Lazy Loading** - Optimized image loading for performance
-
-3. **Configure environment variables**
-
-   - **🖱️ Hover Interactions** - Smooth scale and glow effects
-
-   Create a `.env` file in the root directory:
-
-   ```env- **🎪 Empty States** - Helpful illustrations when no content is available- **My Watchlist** - Save movies you want to watch later- 🎪 **Glass Morphism** - Modern UI with backdrop blur effects
-
-   VITE_TMDB_API_KEY=your_tmdb_api_key_here
-
-   ```- **🔔 Toast Notifications** - Non-intrusive success/error messages
-
-
-
-4. **Start development server**- **Already Watched** - Track movies you've already seen- 📊 **Loading Skeletons** - Professional loading states
-
-   ```bash
-
-   npm run dev## 🛠️ Tech Stack
-
-   # or
-
-   yarn dev- **Recently Viewed** - Quick access to your recently browsed movies- 🔔 **Toast Notifications** - User-friendly feedback system
+   yarn install
 
    ```
 
-### Frontend
 
-5. **Open your browser**
 
-   - **⚛️ React 18.2** - Modern React with Hooks and functional components- **Movie Ratings** - Rate movies on a 1-10 scale
+3. **Configure environment variables**### API & Data- **👤 User Profile Dashboard** - Quick stats and navigation to your collections
 
-   Navigate to `http://localhost:5173`
+   
 
-- **🛤️ React Router DOM 6** - Client-side routing with URL parameters
+   Create a `.env` file in the root directory:- **🎞️ TMDb API** - The Movie Database API for movie data
 
-## 🔑 Getting TMDb API Key
+   ```env
 
-- **⚡ Vite** - Lightning-fast build tool and dev server- **Collection Statistics** - View your collection stats at a glance### Technical Features
+   VITE_TMDB_API_KEY=your_tmdb_api_key_here- **📡 Axios** - HTTP client for API requests- **🌓 Dark/Light Theme** - Toggle between beautiful dark and light modes- **Smart Pagination** - Navigate through large movie collections efficiently### User Collection Management
 
-1. Go to [TMDb](https://www.themoviedb.org/)
-
-2. Create a free account- **🎨 Tailwind CSS 3.3** - Utility-first CSS framework
-
-3. Go to Settings → API
-
-4. Request an API key (choose "Developer" option)- **🎬 Framer Motion** - Production-ready animation library- 🔒 **Secure API Keys** - Environment variables configuration
-
-5. Fill out the form (personal use is fine)
-
-6. Copy your API Key (v3 auth)
-
-7. Add it to your `.env` file
-
-### State Management### 🎨 User Experience- 🚀 **Fast Performance** - Vite bundler for lightning-fast builds
-
-## 🚀 Usage
-
-- **🐻 Zustand** - Lightweight state management with localStorage persistence
-
-### Search for Movies
-
-- Use the search bar in the navbar- **💾 LocalStorage** - Persistent data for watchlist, ratings, and preferences- **Search Autocomplete** - Live search with recent searches and popular suggestions- 📦 **State Management** - Zustand for efficient global state
-
-- Get autocomplete suggestions as you type
-
-- View recent searches and popular movies
-
-- Click any result to view details
-
-### API & Data- **User Profile Dashboard** - Quick stats and navigation to your collections- 🎯 **Type Safety Ready** - Structured for easy TypeScript migration
-
-### Manage Your Collection
-
-- Click the **🔖 bookmark icon** to add movies to your watchlist- **🎞️ TMDb API** - The Movie Database API for movie data
-
-- Click **"✅ Mark as Watched"** after watching a movie
-
-- View all your collections from the **👤 profile menu**- **📡 Axios** - HTTP client for API requests- **Dark/Light Theme** - Toggle between beautiful dark and light modes- 📱 **PWA Ready** - Progressive Web App capabilities
-
-- Rate movies you've watched (⭐ 1-10 scale)
+   ```
 
 - **🔓 CORS Proxy** - Bypass CORS restrictions for TMDb API
 
-### Get Recommendations
+4. **Start development server**
 
-- Add 3+ movies to your watchlist- **Responsive Design** - Seamless experience across desktop, tablet, and mobile
+   ```bash- **📱 Responsive Design** - Seamless experience across desktop, tablet, and mobile
 
-- Visit the home page to see **"💡 For You"** section
+   npm run dev
 
-- Get personalized recommendations based on your preferences### UI Components & Icons
+   # or### UI Components & Icons
 
-- Refresh to discover new suggestions
+   yarn dev
 
-- **🎯 React Icons** - Beautiful icon library (Feather Icons)- **Smooth Animations** - Powered by Framer Motion for delightful interactions## 🛠️ Tech Stack
+   ```- **🎯 React Icons** - Beautiful icon library (Feather Icons)- **✨ Smooth Animations** - Powered by Framer Motion for delightful interactions- 💾 **Watchlist** - Save movies to watch later
+
+
+
+5. **Open your browser**- **🍞 React Hot Toast** - Elegant toast notifications
+
+   
+
+   Navigate to `http://localhost:5173`- **👁️ React Intersection Observer** - Lazy loading and scroll animations- **⏳ Loading States** - Skeleton screens for better perceived performance
+
+
+
+---
+
+
+
+## 🔑 Getting TMDb API Key## 📦 Installation### 🤖 AI-Powered Features- ❤️ **Favorites** - Mark and organize your favorite movies
+
+
+
+1. Go to [TMDb](https://www.themoviedb.org/)
+
+2. Create a free account
+
+3. Go to **Settings → API**### Prerequisites### 📺 Streaming Integration
+
+4. Request an API key (choose "Developer" option)
+
+5. Fill out the form (personal use is fine)- Node.js 16+ and npm/yarn
+
+6. Copy your **API Key (v3 auth)**
+
+7. Add it to your `.env` file- TMDb API Key (free at https://www.themoviedb.org/settings/api)- **🎬 Clickable OTT Platforms** - Direct links to 19+ streaming services- **Personalized Recommendations** - Get AI-generated movie suggestions based on your watchlist- 🗂️ **Local Storage** - All data persists across sessions
+
+
+
+---
+
+
+
+## 🚀 Usage### Setup Steps  - Netflix, Prime Video, Disney+, Hotstar, Hulu, HBO Max, Apple TV+
+
+
+
+### Search for Movies
+
+- Use the search bar in the navbar
+
+- Get autocomplete suggestions as you type1. **Clone the repository**  - Zee5, SonyLIV, Voot, Jio Cinema, MX Player, and more!- **Genre Affinity Analysis** - Intelligent genre preference detection
+
+- View recent searches and popular movies
+
+- Click any result to view details   ```bash
+
+- **Keyboard shortcut:** Press `/` to focus search instantly
+
+   git clone https://github.com/yourusername/cinevault.git- **📍 Watch Provider Information** - See where movies are available to stream or rent
+
+### Manage Your Collection
+
+- Click the **🔖 bookmark icon** to add movies to your watchlist   cd cinevault
+
+- Click **"✅ Mark as Watched"** after watching a movie
+
+- View all your collections from the **👤 profile menu**   ```- **🌍 Regional Availability** - Support for multiple regions (India, US, etc.)- **Smart Movie Discovery** - Recommendations tailored to your viewing history### UI/UX Excellence
+
+- Rate movies you've watched (⭐ 1-10 scale)
+
+- Track your viewing statistics
+
+
+
+### Get AI Recommendations2. **Install dependencies**
+
+- Add **3+ movies** to your watchlist
+
+- Visit the home page to see **"💡 For You"** section   ```bash
+
+- Get personalized recommendations based on your preferences
+
+- Click **🔄 Refresh** to discover new suggestions   npm install### 💎 Modern UI/UX- 🎭 **Smooth Animations** - Framer Motion powered transitions
+
+- The AI learns from your genre preferences, ratings, and viewing history
+
+   # or
 
 ### Watch Movies
 
-- Click on 📺 streaming platform logos in movie details- **🍞 React Hot Toast** - Elegant toast notifications
+- Click on **📺 streaming platform logos** in movie details   yarn install- **✨ Glass Morphism Design** - Beautiful backdrop blur effects
 
 - Get redirected to Netflix, Prime Video, Disney+, and more
 
-- See which platforms have the movie available- **👁️ React Intersection Observer** - Lazy loading and scroll animations- **Loading States** - Skeleton screens for better perceived performance
+- See which platforms have the movie available in your region   ```
 
 
 
-### Customize Your Experience
+### Customize Your Experience- **🎨 Gradient Accents** - Eye-catching color gradients throughout### 📚 Personal Collection Management- 🖼️ **Lazy Loading** - Optimized image loading for performance
 
-- Toggle 🌓 dark/light theme from the navbar
+- Toggle **🌓 dark/light theme** from the navbar
 
-- Adjust your viewing preferences## 📦 Installation- **Frontend Framework:** React 18.2
+- Use **⌨️ keyboard shortcuts** for faster navigation3. **Configure environment variables**
 
-- Track your movie statistics
+- Click **⬆️ Back to Top** button to quickly scroll up
+
+- **Copy & share** movie links with the 🔗 button   - **🖱️ Hover Interactions** - Smooth scale and glow effects
 
 
 
-## 📁 Project Structure
+---   Create a `.env` file in the root directory:
 
-### Prerequisites### 🎭 Streaming Integration- **Build Tool:** Vite 5.0
 
-```
 
-cinevault/- Node.js 16+ and npm/yarn
+## 📸 Screenshots   ```env- **🎪 Empty States** - Helpful illustrations when no content is available- **My Watchlist** - Save movies you want to watch later- 🎪 **Glass Morphism** - Modern UI with backdrop blur effects
 
-├── public/
 
-│   └── manifest.json          # PWA manifest- TMDb API Key (free at https://www.themoviedb.org/settings/api)- **Clickable OTT Platforms** - Direct links to 19+ streaming services- **Styling:** Tailwind CSS 3.3
+
+### Home Page - Dark Mode   VITE_TMDB_API_KEY=your_tmdb_api_key_here
+
+Beautiful hero section with trending movies and personalized recommendations.
+
+   ```- **🔔 Toast Notifications** - Non-intrusive success/error messages
+
+### Movie Details
+
+Comprehensive movie information with cast, crew, trailers, and streaming options.
+
+
+
+### Watchlist Management4. **Start development server**- **Already Watched** - Track movies you've already seen- 📊 **Loading Skeletons** - Professional loading states
+
+Track your movies to watch and already watched collections.
+
+   ```bash
+
+### AI Recommendations
+
+Get personalized "For You" suggestions based on your taste.   npm run dev## 🛠️ Tech Stack
+
+
+
+---   # or
+
+
+
+## 🎯 Key Highlights   yarn dev- **Recently Viewed** - Quick access to your recently browsed movies- 🔔 **Toast Notifications** - User-friendly feedback system
+
+
+
+### Performance Optimizations   ```
+
+- **Smart Caching**: Reduces API calls by caching data for 5-10 minutes
+
+- **Lazy Loading**: Images load only when visible (Intersection Observer)### Frontend
+
+- **Debounced Search**: 300ms debounce prevents excessive API requests
+
+- **Code Splitting**: Optimized bundle size with Vite5. **Open your browser**
+
+- **Fast CORS Proxy**: 1-3 second load times with cors.eu.org
+
+   - **⚛️ React 18.2** - Modern React with Hooks and functional components- **Movie Ratings** - Rate movies on a 1-10 scale
+
+### User Experience
+
+- **Error Boundary**: Catches React errors with beautiful recovery page   Navigate to `http://localhost:5173`
+
+- **Loading States**: Professional skeleton screens during data fetch
+
+- **Toast Notifications**: User-friendly feedback for all actions- **🛤️ React Router DOM 6** - Client-side routing with URL parameters
+
+- **Keyboard Shortcuts**: Power user features for faster navigation
+
+- **SPA Behavior**: No page reloads, smooth transitions## 🔑 Getting TMDb API Key
+
+- **Back to Top**: Quick navigation for long pages
+
+- **⚡ Vite** - Lightning-fast build tool and dev server- **Collection Statistics** - View your collection stats at a glance### Technical Features
+
+### AI Recommendation Algorithm
+
+The AI analyzes your watchlist to provide personalized recommendations:1. Go to [TMDb](https://www.themoviedb.org/)
+
+
+
+1. **Genre Affinity** - Calculates percentage distribution of genres you enjoy2. Create a free account- **🎨 Tailwind CSS 3.3** - Utility-first CSS framework
+
+2. **Rating Preference** - Detects if you prefer high-rated (7+) or popular movies
+
+3. **Year Preference** - Analyzes if you like recent releases or classic films3. Go to Settings → API
+
+4. **Smart Filtering** - Combines all factors to fetch tailored recommendations
+
+5. **Randomization** - Each refresh shows different movies (5 pages × 3 sort orders)4. Request an API key (choose "Developer" option)- **🎬 Framer Motion** - Production-ready animation library- 🔒 **Secure API Keys** - Environment variables configuration
+
+
+
+---5. Fill out the form (personal use is fine)
+
+
+
+## 🏗️ Project Structure6. Copy your API Key (v3 auth)
+
+
+
+```7. Add it to your `.env` file
+
+CineVault/
+
+├── public/### State Management### 🎨 User Experience- 🚀 **Fast Performance** - Vite bundler for lightning-fast builds
+
+│   ├── _redirects           # Netlify redirects
+
+│   └── manifest.json        # PWA manifest## 🚀 Usage
 
 ├── src/
 
+│   ├── components/- **🐻 Zustand** - Lightweight state management with localStorage persistence
+
+│   │   ├── BackToTop.jsx    # Smooth scroll to top button
+
+│   │   ├── EmptyState.jsx   # Empty state illustrations### Search for Movies
+
+│   │   ├── ErrorBoundary.jsx # Error catching component
+
+│   │   ├── FilterPanel.jsx  # Genre & year filters- Use the search bar in the navbar- **💾 LocalStorage** - Persistent data for watchlist, ratings, and preferences- **Search Autocomplete** - Live search with recent searches and popular suggestions- 📦 **State Management** - Zustand for efficient global state
+
+│   │   ├── Footer.jsx       # Footer component
+
+│   │   ├── HeroSection.jsx  # Hero with search- Get autocomplete suggestions as you type
+
+│   │   ├── LoadingSkeleton.jsx # Loading placeholders
+
+│   │   ├── MovieCard.jsx    # Movie card component- View recent searches and popular movies
+
+│   │   ├── Navbar.jsx       # Navigation with search
+
+│   │   ├── PageTransition.jsx # Page animations- Click any result to view details
+
+│   │   ├── Pagination.jsx   # Pagination controls
+
+│   │   └── TrailerModal.jsx # YouTube trailer modal### API & Data- **User Profile Dashboard** - Quick stats and navigation to your collections- 🎯 **Type Safety Ready** - Structured for easy TypeScript migration
+
+│   ├── pages/
+
+│   │   ├── Home.jsx         # Main landing page### Manage Your Collection
+
+│   │   ├── MovieDetails.jsx # Movie detail page
+
+│   │   ├── SearchResults.jsx # Search results page- Click the **🔖 bookmark icon** to add movies to your watchlist- **🎞️ TMDb API** - The Movie Database API for movie data
+
+│   │   └── Watchlist.jsx    # User collections page
+
+│   ├── store/- Click **"✅ Mark as Watched"** after watching a movie
+
+│   │   ├── themeStore.js    # Theme state (Zustand)
+
+│   │   └── watchlistStore.js # Watchlist state (Zustand)- View all your collections from the **👤 profile menu**- **📡 Axios** - HTTP client for API requests- **Dark/Light Theme** - Toggle between beautiful dark and light modes- 📱 **PWA Ready** - Progressive Web App capabilities
+
+│   ├── utils/
+
+│   │   ├── api-tmdb-proxy.js # TMDb API with CORS proxy- Rate movies you've watched (⭐ 1-10 scale)
+
+│   │   ├── api.js           # API functions
+
+│   │   ├── helpers.js       # Helper functions- **🔓 CORS Proxy** - Bypass CORS restrictions for TMDb API
+
+│   │   └── recommendations.js # AI recommendation algorithm
+
+│   ├── App.jsx              # Main app component### Get Recommendations
+
+│   ├── index.css            # Global styles
+
+│   └── main.jsx             # Entry point- Add 3+ movies to your watchlist- **Responsive Design** - Seamless experience across desktop, tablet, and mobile
+
+├── .env                     # Environment variables
+
+├── index.html               # HTML template- Visit the home page to see **"💡 For You"** section
+
+├── package.json             # Dependencies
+
+├── postcss.config.js        # PostCSS configuration- Get personalized recommendations based on your preferences### UI Components & Icons
+
+├── tailwind.config.js       # Tailwind configuration
+
+├── vite.config.js           # Vite configuration- Refresh to discover new suggestions
+
+└── README.md                # This file
+
+```- **🎯 React Icons** - Beautiful icon library (Feather Icons)- **Smooth Animations** - Powered by Framer Motion for delightful interactions## 🛠️ Tech Stack
+
+
+
+---### Watch Movies
+
+
+
+## 🚢 Deployment- Click on 📺 streaming platform logos in movie details- **🍞 React Hot Toast** - Elegant toast notifications
+
+
+
+### Netlify / Vercel / Render- Get redirected to Netflix, Prime Video, Disney+, and more
+
+
+
+1. **Build the project**- See which platforms have the movie available- **👁️ React Intersection Observer** - Lazy loading and scroll animations- **Loading States** - Skeleton screens for better perceived performance
+
+   ```bash
+
+   npm run build
+
+   ```
+
+### Customize Your Experience
+
+2. **Deploy**
+
+   - **Netlify**: Connect your GitHub repo and set build command to `npm run build`- Toggle 🌓 dark/light theme from the navbar
+
+   - **Vercel**: Import project and set environment variable `VITE_TMDB_API_KEY`
+
+   - **Render**: Create static site and set build command to `npm run build`- Adjust your viewing preferences## 📦 Installation- **Frontend Framework:** React 18.2
+
+
+
+3. **Environment Variables**- Track your movie statistics
+
+   - Add `VITE_TMDB_API_KEY` in your deployment platform's settings
+
+
+
+4. **Redirects** (SPA routing)
+
+   - Netlify: `public/_redirects` already configured## 📁 Project Structure
+
+   - Vercel: `vercel.json` already configured
+
+### Prerequisites### 🎭 Streaming Integration- **Build Tool:** Vite 5.0
+
+---
+
+```
+
+## 🤝 Contributing
+
+cinevault/- Node.js 16+ and npm/yarn
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+├── public/
+
+1. Fork the repository
+
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)│   └── manifest.json          # PWA manifest- TMDb API Key (free at https://www.themoviedb.org/settings/api)- **Clickable OTT Platforms** - Direct links to 19+ streaming services- **Styling:** Tailwind CSS 3.3
+
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+
+4. Push to the branch (`git push origin feature/AmazingFeature`)├── src/
+
+5. Open a Pull Request
+
 │   ├── components/            # Reusable UI components
+
+---
 
 │   │   ├── EmptyState.jsx
 
+## 📝 License
+
 │   │   ├── FilterPanel.jsx### Setup Steps- **Watch Provider Information** - See where movies are available to stream or rent- **Animations:** Framer Motion
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 │   │   ├── Footer.jsx
 
+---
+
 │   │   ├── HeroSection.jsx
+
+## 🙏 Acknowledgments
 
 │   │   ├── LoadingSkeleton.jsx
 
-│   │   ├── MovieCard.jsx1. **Clone the repository**- **Regional Availability** - Support for multiple regions (India, US, etc.)- **State Management:** Zustand
+- [The Movie Database (TMDb)](https://www.themoviedb.org/) for providing the comprehensive movie API
 
-│   │   ├── Navbar.jsx
+- [React](https://reactjs.org/) for the amazing UI library│   │   ├── MovieCard.jsx1. **Clone the repository**- **Regional Availability** - Support for multiple regions (India, US, etc.)- **State Management:** Zustand
 
-│   │   ├── PageTransition.jsx   ```bash
+- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
 
-│   │   ├── Pagination.jsx
+- [Framer Motion](https://www.framer.com/motion/) for smooth animations│   │   ├── Navbar.jsx
 
-│   │   └── TrailerModal.jsx   git clone https://github.com/yourusername/movie-explorer-pro.git- **Routing:** React Router DOM
+- [Vite](https://vitejs.dev/) for the blazing-fast build tool
 
-│   ├── pages/                 # Route pages
+- All contributors and users of CineVault│   │   ├── PageTransition.jsx   ```bash
 
-│   │   ├── Home.jsx   cd movie-explorer-pro
 
-│   │   ├── MovieDetails.jsx
 
-│   │   ├── SearchResults.jsx   ```### 🎨 Modern UI/UX- **HTTP Client:** Axios
+---│   │   ├── Pagination.jsx
 
-│   │   └── Watchlist.jsx
 
-│   ├── store/                 # Zustand state stores
 
-│   │   ├── themeStore.js
+## 📧 Contact│   │   └── TrailerModal.jsx   git clone https://github.com/yourusername/movie-explorer-pro.git- **Routing:** React Router DOM
 
-│   │   └── watchlistStore.js2. **Install dependencies**- **Glass Morphism Design** - Beautiful backdrop blur effects- **Icons:** React Icons
+
+
+**Venu** - [@venu1011](https://github.com/venu1011)│   ├── pages/                 # Route pages
+
+
+
+Project Link: [https://github.com/venu1011/CineVault](https://github.com/venu1011/CineVault)│   │   ├── Home.jsx   cd movie-explorer-pro
+
+
+
+---│   │   ├── MovieDetails.jsx
+
+
+
+## 🌟 Show Your Support│   │   ├── SearchResults.jsx   ```### 🎨 Modern UI/UX- **HTTP Client:** Axios
+
+
+
+Give a ⭐️ if you like this project!│   │   └── Watchlist.jsx
+
+
+
+---│   ├── store/                 # Zustand state stores
+
+
+
+<div align="center">│   │   ├── themeStore.js
+
+  <p>Made with ❤️ by Venu</p>
+
+  <p>Powered by TMDb API</p>│   │   └── watchlistStore.js2. **Install dependencies**- **Glass Morphism Design** - Beautiful backdrop blur effects- **Icons:** React Icons
+
+</div>
 
 │   ├── utils/                 # Utility functions
 
