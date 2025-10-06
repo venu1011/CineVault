@@ -168,7 +168,12 @@ export const getPersonalizedRecommendations = async (watchlist, favorites, disco
       params['primary_release_date.gte'] = `${averageYear - 5}-01-01`
     }
 
-    const recommendations = await discoverMovies(params)
+    console.log('🔍 Fetching recommendations with params:', params)
+    const response = await discoverMovies(params)
+    
+    // Extract results array from response
+    const recommendations = response.results || response || []
+    console.log('📊 Got recommendations:', recommendations.length)
 
     // Filter out already watched movies
     const watchedIds = new Set([
@@ -177,6 +182,7 @@ export const getPersonalizedRecommendations = async (watchlist, favorites, disco
     ])
 
     const filtered = recommendations.filter(movie => !watchedIds.has(movie.id))
+    console.log('✨ Filtered recommendations:', filtered.length)
 
     return {
       recommendations: filtered.slice(0, 8),

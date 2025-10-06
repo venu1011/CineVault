@@ -10,6 +10,41 @@ import { useWatchlistStore } from '../store/watchlistStore'
 import { getPersonalizedRecommendations, getUserTasteProfile, getRecommendationExplanation } from '../utils/recommendations'
 import toast from 'react-hot-toast'
 
+// Cache helper functions
+const CACHE_KEY = 'home_movies_cache'
+const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
+
+const getCache = () => {
+  try {
+    const cached = sessionStorage.getItem(CACHE_KEY)
+    if (!cached) return null
+    
+    const { data, timestamp } = JSON.parse(cached)
+    const isExpired = Date.now() - timestamp > CACHE_DURATION
+    
+    if (isExpired) {
+      sessionStorage.removeItem(CACHE_KEY)
+      return null
+    }
+    
+    console.log('✅ Using cached data')
+    return data
+  } catch (error) {
+    return null
+  }
+}
+
+const setCache = (data) => {
+  try {
+    sessionStorage.setItem(CACHE_KEY, JSON.stringify({
+      data,
+      timestamp: Date.now()
+    }))
+  } catch (error) {
+    console.error('Failed to cache data:', error)
+  }
+}
+
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([])
   const [popularMovies, setPopularMovies] = useState([])
@@ -34,42 +69,68 @@ const Home = () => {
 
   useEffect(() => {
     fetchHomeData()
+    // Also fetch recommendations on mount
+    fetchRecommendations()
   }, [])
 
   // Fetch personalized recommendations when watchlist changes
   useEffect(() => {
     fetchRecommendations()
-  }, [watchlist, favorites])
+  }, [watchlist.length, favorites.length])
 
   const fetchRecommendations = async () => {
+    console.log('🎯 Checking recommendations... Watchlist:', watchlist.length, 'Favorites:', favorites.length)
+    
     if (watchlist.length < 3) {
+      console.log('⚠️ Need at least 3 movies in watchlist for AI recommendations')
       setRecommendedMovies([])
       setRecommendationReason(null)
       return
     }
 
     try {
+      console.log('🤖 Generating AI recommendations...')
       const { recommendations, reason, basedOn } = await getPersonalizedRecommendations(
         watchlist,
         favorites,
         discoverMovies
       )
 
+      console.log('✅ Recommendations received:', recommendations?.length, 'Reason:', reason)
+
       if (reason === 'success' && recommendations.length > 0) {
         setRecommendedMovies(recommendations)
         setRecommendationReason(basedOn)
+        console.log('✅ AI recommendations set successfully!')
       } else {
         setRecommendedMovies([])
         setRecommendationReason(null)
+        console.log('⚠️ No recommendations generated')
       }
     } catch (error) {
-      console.error('Error fetching recommendations:', error)
+      console.error('❌ Error fetching recommendations:', error)
+      setRecommendedMovies([])
+      setRecommendationReason(null)
     }
   }
 
   const fetchHomeData = async () => {
     try {
       setLoading(true)
+      
+      // Check cache first
+      const cachedData = getCache()
+      if (cachedData) {
+        setTrendingMovies(cachedData.trending)
+        setPopularMovies(cachedData.popular)
+        setNowPlayingMovies(cachedData.nowPlaying)
+        setUpcomingMovies(cachedData.upcoming)
+        setTopRatedMovies(cachedData.topRated)
+        setLoading(false)
+        return
+      }
+
+      console.log('🔄 Fetching fresh data from API...')
       
       // Fetch REAL trending movies from TMDb!
       const trending = await getTrendingMovies(trendingType)
@@ -90,6 +151,15 @@ const Home = () => {
       // Fetch top rated of all time
       const topRated = await getTopRatedMovies()
       setTopRatedMovies(topRated?.slice(0, 8) || []) // Reduced to 8
+
+      // Cache the data
+      setCache({
+        trending: trending?.slice(0, 8) || [],
+        popular: popular?.slice(0, 8) || [],
+        nowPlaying: nowPlaying?.slice(0, 8) || [],
+        upcoming: upcoming?.slice(0, 8) || [],
+        topRated: topRated?.slice(0, 8) || []
+      })
 
     } catch (error) {
       console.error('Error fetching home data:', error)

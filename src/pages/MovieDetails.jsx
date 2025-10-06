@@ -20,6 +20,31 @@ import LoadingSkeleton from '../components/LoadingSkeleton'
 import TrailerModal from '../components/TrailerModal'
 import toast from 'react-hot-toast'
 
+// Cache for movie details
+const movieCache = new Map()
+const CACHE_DURATION = 10 * 60 * 1000 // 10 minutes
+
+const getCachedMovie = (id) => {
+  const cached = movieCache.get(id)
+  if (!cached) return null
+  
+  const isExpired = Date.now() - cached.timestamp > CACHE_DURATION
+  if (isExpired) {
+    movieCache.delete(id)
+    return null
+  }
+  
+  console.log(`✅ Using cached movie data for ID: ${id}`)
+  return cached.data
+}
+
+const setCachedMovie = (id, data) => {
+  movieCache.set(id, {
+    data,
+    timestamp: Date.now()
+  })
+}
+
 // OTT Platform URLs (Deep links to search for the movie)
 const getStreamingUrl = (providerName, movieTitle, movieYear) => {
   const encodedTitle = encodeURIComponent(movieTitle)
@@ -86,6 +111,26 @@ const MovieDetails = () => {
     try {
       setLoading(true)
       
+      // Check cache first
+      const cachedData = getCachedMovie(id)
+      if (cachedData) {
+        setMovie(cachedData.movie)
+        setTrailer(cachedData.trailer)
+        setCast(cachedData.cast)
+        setCrew(cachedData.crew)
+        setSimilarMovies(cachedData.similarMovies)
+        setRecommendations(cachedData.recommendations)
+        setWatchProviders(cachedData.watchProviders)
+        setUserRating(getRating(id))
+        setLoading(false)
+        
+        // Still track as recently viewed
+        addToRecentlyViewed(cachedData.movie)
+        return
+      }
+
+      console.log('🔄 Fetching fresh movie data from API...')
+      
       // Fetch ALL data in ONE API call (faster!)
       const movieData = await getMovieDetails(id)
       setMovie(movieData)
@@ -95,41 +140,63 @@ const MovieDetails = () => {
       addToRecentlyViewed(movieData)
 
       // Extract trailer from videos
+      let trailerData = null
       if (movieData.videos && movieData.videos.results) {
         const youtubeTrailer = movieData.videos.results.find(
           video => video.type === 'Trailer' && video.site === 'YouTube'
         )
-        setTrailer(youtubeTrailer || movieData.videos.results[0])
+        trailerData = youtubeTrailer || movieData.videos.results[0]
+        setTrailer(trailerData)
       }
 
       // Extract cast and crew from credits
+      let castData = []
+      let crewData = []
       if (movieData.credits) {
-        setCast(movieData.credits.cast?.slice(0, 4) || []) // Reduced to 4 for speed!
+        castData = movieData.credits.cast?.slice(0, 4) || [] // Reduced to 4 for speed!
+        setCast(castData)
         const keyCrewRoles = ['Director', 'Producer', 'Writer', 'Screenplay']
         const keyCrew = movieData.credits.crew?.filter(person => 
           keyCrewRoles.includes(person.job)
         ) || []
         // Remove duplicates and limit to 4
-        const uniqueCrew = keyCrew.filter((person, index, self) =>
+        crewData = keyCrew.filter((person, index, self) =>
           index === self.findIndex(p => p.id === person.id)
         ).slice(0, 4)
-        setCrew(uniqueCrew)
+        setCrew(crewData)
       }
 
       // Extract similar movies
+      let similarData = []
       if (movieData.similar && movieData.similar.results) {
-        setSimilarMovies(movieData.similar.results.slice(0, 4))
+        similarData = movieData.similar.results.slice(0, 4)
+        setSimilarMovies(similarData)
       }
 
       // Extract recommendations
+      let recommendationsData = []
       if (movieData.recommendations && movieData.recommendations.results) {
-        setRecommendations(movieData.recommendations.results.slice(0, 4))
+        recommendationsData = movieData.recommendations.results.slice(0, 4)
+        setRecommendations(recommendationsData)
       }
 
       // Extract watch providers
+      let providersData = null
       if (movieData['watch/providers'] && movieData['watch/providers'].results) {
-        setWatchProviders(movieData['watch/providers'].results)
+        providersData = movieData['watch/providers'].results
+        setWatchProviders(providersData)
       }
+
+      // Cache all the data
+      setCachedMovie(id, {
+        movie: movieData,
+        trailer: trailerData,
+        cast: castData,
+        crew: crewData,
+        similarMovies: similarData,
+        recommendations: recommendationsData,
+        watchProviders: providersData
+      })
       
     } catch (error) {
       console.error('Error fetching movie details:', error)
