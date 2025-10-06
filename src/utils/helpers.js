@@ -18,16 +18,24 @@ export const debounce = (func, delay = 300) => {
  * @returns {string} - Formatted runtime
  */
 export const formatRuntime = (runtime) => {
-  if (!runtime || runtime === 'N/A') return 'N/A'
+  if (!runtime || runtime === 'N/A') {
+    return 'N/A'
+  }
   
   const minutes = parseInt(runtime)
-  if (isNaN(minutes)) return runtime
+  if (isNaN(minutes)) {
+    return runtime
+  }
   
   const hours = Math.floor(minutes / 60)
   const mins = minutes % 60
   
-  if (hours === 0) return `${mins}m`
-  if (mins === 0) return `${hours}h`
+  if (hours === 0) {
+    return `${mins}m`
+  }
+  if (mins === 0) {
+    return `${hours}h`
+  }
   return `${hours}h ${mins}m`
 }
 
@@ -37,10 +45,14 @@ export const formatRuntime = (runtime) => {
  * @returns {string} - Formatted number
  */
 export const formatNumber = (num) => {
-  if (!num || num === 'N/A') return 'N/A'
+  if (!num || num === 'N/A') {
+    return 'N/A'
+  }
   
   const number = typeof num === 'string' ? parseInt(num.replace(/[^0-9]/g, '')) : num
-  if (isNaN(number)) return num
+  if (isNaN(number)) {
+    return num
+  }
   
   return number.toLocaleString()
 }
@@ -52,7 +64,9 @@ export const formatNumber = (num) => {
  * @returns {string} - Truncated text
  */
 export const truncateText = (text, maxLength = 150) => {
-  if (!text || text.length <= maxLength) return text
+  if (!text || text.length <= maxLength) {
+    return text
+  }
   return text.substring(0, maxLength).trim() + '...'
 }
 
@@ -75,7 +89,9 @@ export const getYearRange = () => {
  * @returns {boolean} - Is valid rating
  */
 export const isValidRating = (rating) => {
-  if (!rating || rating === 'N/A') return false
+  if (!rating || rating === 'N/A') {
+    return false
+  }
   const num = parseFloat(rating)
   return !isNaN(num) && num >= 0 && num <= 10
 }
@@ -87,11 +103,19 @@ export const isValidRating = (rating) => {
  */
 export const getRatingColor = (rating) => {
   const score = typeof rating === 'string' ? parseFloat(rating) : rating
-  if (isNaN(score)) return 'text-gray-400'
+  if (isNaN(score)) {
+    return 'text-gray-400'
+  }
   
-  if (score >= 8) return 'text-green-500'
-  if (score >= 6) return 'text-yellow-500'
-  if (score >= 4) return 'text-orange-500'
+  if (score >= 8) {
+    return 'text-green-500'
+  }
+  if (score >= 6) {
+    return 'text-yellow-500'
+  }
+  if (score >= 4) {
+    return 'text-orange-500'
+  }
   return 'text-red-500'
 }
 

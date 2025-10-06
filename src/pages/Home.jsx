@@ -54,6 +54,7 @@ const Home = () => {
   const [recommendedMovies, setRecommendedMovies] = useState([])
   const [recommendationReason, setRecommendationReason] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [refreshingRecommendations, setRefreshingRecommendations] = useState(false)
   const [trendingType, setTrendingType] = useState('week') // 'day' or 'week'
   const { theme } = useThemeStore()
   const { watchlist, favorites } = useWatchlistStore()
@@ -78,8 +79,8 @@ const Home = () => {
     fetchRecommendations()
   }, [watchlist.length, favorites.length])
 
-  const fetchRecommendations = async () => {
-    console.log('🎯 Checking recommendations... Watchlist:', watchlist.length, 'Favorites:', favorites.length)
+  const fetchRecommendations = async (forceRefresh = false) => {
+    console.log('🎯 Checking recommendations... Watchlist:', watchlist.length, 'Favorites:', favorites.length, 'Force Refresh:', forceRefresh)
     
     if (watchlist.length < 3) {
       console.log('⚠️ Need at least 3 movies in watchlist for AI recommendations')
@@ -89,11 +90,16 @@ const Home = () => {
     }
 
     try {
+      if (forceRefresh) {
+        setRefreshingRecommendations(true)
+      }
+      
       console.log('🤖 Generating AI recommendations...')
       const { recommendations, reason, basedOn } = await getPersonalizedRecommendations(
         watchlist,
         favorites,
-        discoverMovies
+        discoverMovies,
+        forceRefresh
       )
 
       console.log('✅ Recommendations received:', recommendations?.length, 'Reason:', reason)
@@ -102,6 +108,9 @@ const Home = () => {
         setRecommendedMovies(recommendations)
         setRecommendationReason(basedOn)
         console.log('✅ AI recommendations set successfully!')
+        if (forceRefresh) {
+          toast.success('✨ Fresh recommendations loaded!')
+        }
       } else {
         setRecommendedMovies([])
         setRecommendationReason(null)
@@ -111,6 +120,13 @@ const Home = () => {
       console.error('❌ Error fetching recommendations:', error)
       setRecommendedMovies([])
       setRecommendationReason(null)
+      if (forceRefresh) {
+        toast.error('Failed to refresh recommendations')
+      }
+    } finally {
+      if (forceRefresh) {
+        setRefreshingRecommendations(false)
+      }
     }
   }
 
@@ -277,14 +293,17 @@ const Home = () => {
 
               {/* Refresh Button */}
               <button
-                onClick={fetchRecommendations}
-                className={`px-4 py-2 rounded-lg font-semibold transition-all ${
+                onClick={() => fetchRecommendations(true)}
+                disabled={refreshingRecommendations}
+                className={`px-4 py-2 rounded-lg font-semibold transition-all transform ${
+                  refreshingRecommendations ? 'animate-spin' : 'hover:rotate-180'
+                } duration-500 ${
                   theme === 'light'
-                    ? 'bg-primary-100 text-primary-700 hover:bg-primary-200'
-                    : 'bg-primary-900/30 text-primary-400 hover:bg-primary-900/50'
+                    ? 'bg-primary-100 text-primary-700 hover:bg-primary-200 disabled:opacity-50'
+                    : 'bg-primary-900/30 text-primary-400 hover:bg-primary-900/50 disabled:opacity-50'
                 }`}
               >
-                🔄 Refresh
+                🔄 {refreshingRecommendations ? 'Loading...' : 'Refresh'}
               </button>
             </div>
 

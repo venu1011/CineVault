@@ -131,9 +131,10 @@ export const analyzeYearPreference = (watchlist) => {
  * @param {Array} watchlist - User's watchlist
  * @param {Array} favorites - User's favorites
  * @param {Function} discoverMovies - TMDb discover function
+ * @param {Boolean} forceRefresh - Force new random recommendations
  * @returns {Promise<Array>} Recommended movies
  */
-export const getPersonalizedRecommendations = async (watchlist, favorites, discoverMovies) => {
+export const getPersonalizedRecommendations = async (watchlist, favorites, discoverMovies, forceRefresh = false) => {
   // Need at least 3 movies to generate good recommendations
   if (!watchlist || watchlist.length < 3) {
     return { recommendations: [], reason: 'not-enough-data' }
@@ -153,13 +154,21 @@ export const getPersonalizedRecommendations = async (watchlist, favorites, disco
     const primaryGenre = topGenres[0].id
     const secondaryGenre = topGenres[1]?.id
 
+    // Add randomization for force refresh
+    const randomPage = forceRefresh ? Math.floor(Math.random() * 5) + 1 : 1
+    const sortOptions = ['vote_average.desc', 'popularity.desc', 'release_date.desc']
+    const randomSort = forceRefresh ? sortOptions[Math.floor(Math.random() * sortOptions.length)] : 'vote_average.desc'
+
     // Discover movies based on preferences
     const params = {
       with_genres: secondaryGenre ? `${primaryGenre},${secondaryGenre}` : primaryGenre,
-      sort_by: 'vote_average.desc',
+      sort_by: randomSort,
+      page: randomPage,
       'vote_count.gte': 100, // Ensure quality movies
       'vote_average.gte': preferHighRated ? 7.0 : 6.0,
     }
+
+    console.log('🎲 Refresh params:', { randomPage, randomSort, forceRefresh })
 
     // Add year preference
     if (preferRecent) {

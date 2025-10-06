@@ -5,6 +5,8 @@ import { useThemeStore } from './store/themeStore'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import PageTransition from './components/PageTransition'
+import ErrorBoundary from './components/ErrorBoundary'
+import BackToTop from './components/BackToTop'
 import Home from './pages/Home'
 import MovieDetails from './pages/MovieDetails'
 import Watchlist from './pages/Watchlist'
@@ -15,19 +17,20 @@ function App() {
   const location = useLocation()
 
   return (
-    <div className={theme === 'light' ? 'light' : ''}>
-      <div className="min-h-screen transition-colors duration-300">
-        <Navbar />
-        
-        <main className="container mx-auto px-4 py-8">
-          <AnimatePresence mode="wait">
-            <PageTransition key={location.pathname}>
-              <Routes location={location}>
-                <Route path="/" element={<Home />} />
-                <Route path="/movie/:id" element={<MovieDetails />} />
-                <Route path="/search" element={<SearchResults />} />
-                <Route path="/watchlist" element={<Watchlist />} />
-              </Routes>
+    <ErrorBoundary>
+      <div className={theme === 'light' ? 'light' : ''}>
+        <div className="min-h-screen transition-colors duration-300">
+          <Navbar />
+          
+          <main className="container mx-auto px-4 py-8">
+            <AnimatePresence mode="wait">
+              <PageTransition key={location.pathname}>
+                <Routes location={location}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/movie/:id" element={<MovieDetails />} />
+                  <Route path="/search" element={<SearchResults />} />
+                  <Route path="/watchlist" element={<Watchlist />} />
+                </Routes>
             </PageTransition>
           </AnimatePresence>
         </main>
@@ -57,8 +60,10 @@ function App() {
         />
 
         <Footer />
+        <BackToTop />
       </div>
     </div>
+    </ErrorBoundary>
   )
 }
 

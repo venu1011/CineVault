@@ -81,6 +81,7 @@ const HeroSection = ({ movies = [] }) => {
               src={getBackdropUrl(featuredMovie.backdrop_path, 'original')}
               alt={featuredMovie.title}
               className="w-full h-full object-cover"
+              loading="eager"
             />
             {/* Gradient Overlays */}
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />

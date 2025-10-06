@@ -16,6 +16,7 @@ const Navbar = () => {
   const [isSearching, setIsSearching] = useState(false)
   const [showProfileMenu, setShowProfileMenu] = useState(false)
   const searchRef = useRef(null)
+  const searchInputRef = useRef(null)
   const profileRef = useRef(null)
   const navigate = useNavigate()
   const { theme, toggleTheme } = useThemeStore()
@@ -23,6 +24,28 @@ const Navbar = () => {
 
   const alreadyWatched = getAlreadyWatched()
   const recentlyViewed = getRecentlyViewed()
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyboard = (e) => {
+      // Press "/" to focus search
+      if (e.key === '/' && !e.ctrlKey && !e.metaKey) {
+        e.preventDefault()
+        searchInputRef.current?.focus()
+      }
+      
+      // Press "ESC" to close search/modals
+      if (e.key === 'Escape') {
+        setShowSearchResults(false)
+        setShowProfileMenu(false)
+        setSearchQuery('')
+        searchInputRef.current?.blur()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyboard)
+    return () => document.removeEventListener('keydown', handleKeyboard)
+  }, [])
 
   // Load recent searches from localStorage
   useEffect(() => {
@@ -138,11 +161,12 @@ const Navbar = () => {
           <form onSubmit={handleSearch} className="hidden md:flex flex-1 max-w-md mx-8 relative" ref={searchRef}>
             <div className="relative w-full">
               <input
+                ref={searchInputRef}
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setShowSearchResults(true)}
-                placeholder="Search movies..."
+                placeholder="Search movies... (Press / to focus)"
                 className={`w-full px-4 py-2 pl-10 pr-10 rounded-lg ${
                   theme === 'light'
                     ? 'bg-gray-100 border-gray-300 text-gray-900 placeholder-gray-500'

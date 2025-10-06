@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { 
   FiHeart, FiBookmark, FiStar, FiClock, FiCalendar, 
-  FiFilm, FiAward, FiDollarSign, FiShare2, FiArrowLeft, FiPlay, FiUser, FiUsers, FiMonitor, FiCheckCircle, FiExternalLink
+  FiFilm, FiAward, FiDollarSign, FiShare2, FiArrowLeft, FiPlay, FiUser, FiUsers, FiMonitor, FiCheckCircle, FiExternalLink, FiCopy
 } from 'react-icons/fi'
 import { 
   getMovieDetails, 
@@ -240,8 +240,8 @@ const MovieDetails = () => {
 
   const handleShare = async () => {
     const shared = await shareContent({
-      title: movie.Title,
-      text: `Check out ${movie.Title} (${movie.Year})`,
+      title: movie.title,
+      text: `Check out ${movie.title} (${movie.release_date?.split('-')[0] || 'Movie'})`,
       url: window.location.href
     })
     
@@ -250,7 +250,19 @@ const MovieDetails = () => {
     } else {
       // Fallback to clipboard
       navigator.clipboard.writeText(window.location.href)
-      toast.success('Link copied to clipboard')
+      toast.success('Link copied to clipboard!')
+    }
+  }
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href)
+      toast.success('🔗 Link copied to clipboard!', {
+        icon: '✅',
+        duration: 2000
+      })
+    } catch (error) {
+      toast.error('Failed to copy link')
     }
   }
 
@@ -496,6 +508,22 @@ const MovieDetails = () => {
                 <span className="relative flex items-center space-x-2">
                   <FiShare2 />
                   <span>Share</span>
+                </span>
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleCopyLink}
+                className={`group relative px-6 py-3 rounded-xl font-semibold shadow-lg transition-all ${
+                  theme === 'light'
+                    ? 'bg-gradient-to-r from-primary-500 to-blue-500 text-white hover:from-primary-600 hover:to-blue-600'
+                    : 'bg-gradient-to-r from-primary-500 to-blue-500 text-white hover:from-primary-600 hover:to-blue-600'
+                }`}
+              >
+                <span className="relative flex items-center space-x-2">
+                  <FiCopy />
+                  <span>Copy Link</span>
                 </span>
               </motion.button>
             </div>
